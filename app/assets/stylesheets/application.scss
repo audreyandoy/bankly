@@ -25,11 +25,17 @@ $btn-border-radius-base: 0;
 $navbar-default-color: white !default;
 $navbar-default-bg: #21CE99 !default;
 $navbar-default-link-color: white !default;
+$font-family-sans-serif: "Oxygen" !default;
 
 @import "bootstrap";
 @import "bootstrap-sprockets";
 @import "main";
 @import "sessions";
 @import "users";
+
+#bankly {
+	font-family: "Anton";
+	font-size: 4rem;
+}
 
 

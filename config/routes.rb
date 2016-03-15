@@ -5,19 +5,18 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
-  	
-
-  # get 'line_items' => 'line_items#new'
-  # post 'line_items' => 'line_items#create'
 
   get 'items' => 'line_items#new', as: :line_items
   post 'items' => 'line_items#create'
+
   put 'items/:id' => 'line_items#update'
   # get '/line_items/:id(.:format)' => 'line_items#show', as: :items_show
+
   get '/items/show' => 'line_items#show', as: :line_items_show
   get '/line_items/:id/edit(.:format)' => 'line_items#edit', as: :line_items_edit
   delete '/line_items/:id(.:format)' => 'line_items#destroy', as: :line_items_delete
 
+  get 'category/:category_name' => 'line_items#category', as: :category
 
 
   get 'users' => 'users#new'

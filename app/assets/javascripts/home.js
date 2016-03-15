@@ -17,48 +17,59 @@ $(document).ready(function() {
     var ctx = $("#myChart").get(0).getContext("2d");
     var myDoughnutChart = new Chart(ctx).Doughnut(chartData);
 
+	$("#myChart").click( 
+      function(evt){
+        var activePoints = myDoughnutChart.getSegmentsAtEvent(evt);
+        var category = activePoints[0].label;
+        $.get("/category/"+category, function(data){
+        	$('.modal-body-item').html(data);
+        	$('#modal-item').modal();
+        });
+      }
+    );       
+});
 
 var chartData = [
     {
         value: '$',
-        color:"#20CE99",
-        highlight: "#FF5A5E",
+        color: "#28FFBD",
+        highlight: "#0C9ECC",
         label: "Housing"
     },
     {
         value: '$',
-        color: "#74FFD5",
-        highlight: "#5AD3D1",
+        color:"#3A7F6A",
+        highlight: "#558999",
         label: "Transportation"
     },
     {
         value: '$',
-        color: "#28FFBD",
-        highlight: "#FFC870",
+        color:"#20CE99",
+        highlight: "#0C9ECC",
         label: "Bills"
     },
     {
         value: '$',
-        color:"#3A7F6A",
-        highlight: "#FF5A5E",
+        color: "#74FFD5",
+        highlight: "#558999",
         label: "Entertainment"
     },
     {
         value: '$',
-        color: "#20CC98",
-        highlight: "#5AD3D1",
+        color: "#083628",
+        highlight: "#28FFBD",
         label: "Education"
     },
     {
         value: '$',
-        color: "#083628",
-        highlight: "#FFC870",
+        color: "#20CC98",
+        highlight: "#558999",
         label: "Food"
     },
     {
         value: '$',
         color: "#000000",
-        highlight: "#FFC870",
+        highlight: "#28FFBD",
         label: "Miscellaneous"
     }
 ]

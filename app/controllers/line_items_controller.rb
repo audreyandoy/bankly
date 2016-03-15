@@ -15,8 +15,16 @@ class LineItemsController < ApplicationController
     @total = 0
   end
 
+
   def edit
     @line_item = LineItem.find(params[:id])
+  end
+
+  def category
+  	category = params[:category_name]
+  	@category_list = Category.find_by_name(category)
+  	@list = @current_user.line_item.where(category_id: @category_list.id)
+  	render layout: false, template: "line_items/category"
   end
 
   def update

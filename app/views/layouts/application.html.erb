@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  	<script src="//code.jquery.com/jquery.js"></script>
-  	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
   <title>Bankly</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arya' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-
-
-
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,8 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Bankly</a>
-        
+      <a class="navbar-brand" href="/" id="bankly">Bankly</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,10 +62,10 @@
         <div class="modal-body">
           <!-- <h1>Log in</h1> -->  
           <%= bootstrap_form_for line_item, url: '/items' do |f| %>
-            <%= f.text_field :name %>
-            <%= f.number_field :amount %>
-            <%= f.text_field :description %>
-            <%= f.date_field :date %>
+            <%= f.text_field :name, :required => true %>
+            <%= f.number_field :amount, :required => true %>
+            <%= f.text_field :description, :required => true %>
+            <%= f.date_field :date, :required => true %>
             <%= f.select :category_id, options_from_collection_for_select(categories, 'id', 'name') %>
             <%= f.submit "Add item", class: "btn btn-primary" %>
           <% end %>

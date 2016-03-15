@@ -1,6 +1,6 @@
 <h1>Add item</h1>
 
-<%= form_for @line_item do |f| %>
+<%= form_for @line_item, validate: true do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

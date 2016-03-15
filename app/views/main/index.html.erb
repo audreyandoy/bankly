@@ -1,15 +1,18 @@
 <div class="main">
 	<div id="fullpage">
 		<div class="section">
-			<div class='row text-center'>
+			<div class='row text-center main-page'>
 				<div class='col-sm-8 col-sm-offset-2'>
 					<h1>Bankly</h1>
-					<p class='tag-line'>Some catchy tagline</p>
+					<p class='tag-line'>Visualize your spending</p>
 					<% if !@user %>
 						<button class='btn-xlarge btn-primary', data-toggle="modal" href='#modal-id1'>Login</button>
 							<br />
 						<p>New to the site? <a href='#modal-id2', data-toggle='modal'>Sign up!</a></p>				
 					<% end %>
+					<div id="circlearrow" class="row center-block">
+					<div id="arrow" class="row center-block"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -19,8 +22,7 @@
 				<div id="profiles">
 					<div class="col-sm-3">
 						<div class="profilepic center-block" id="mark"></div>
-						<p>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>I am a full stack web developer from Seattle with a passion for creativity and problem solving using the latest web technologies (Node, Ruby on Rails, PostgreSQL, Express, Angular).</p>
 					</div>
 					<div class="profile col-sm-3">
 						<div class="profilepic center-block" id="audrey"></div>

@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .main {
 
 		.btn-xlarge {
@@ -11,8 +13,8 @@
 	    margin: 19px 0;
 	    line-height: normal;
 	    -webkit-border-radius: 8px;
-	       -moz-border-radius: 8px;
-	            border-radius: 8px;
+	    -moz-border-radius: 8px;
+	    border-radius: 8px;
     }
 
 
@@ -27,9 +29,34 @@
 		font-size: 21px;
 	}
 
+	#circlearrow {
+		border-radius: 50%;
+		height: 50px;
+		width: 50px;
+		background-color: white;
+		border: 2px solid #333333;
+		margin-top: 40px;
+		padding-top: 11px;
+	}
+	
+	#arrow {
+	height: 20px;
+	width: 20px;
+	border-top: 3px solid #333333;
+	border-right: 3px solid #333333;
+	-ms-transform: rotate(135deg); 
+    -webkit-transform: rotate(135deg); 
+    transform: rotate(135deg);
+  	}
+
+  	.navbar-brand {
+  		color: black;
+  		font-family: "Anton";
+  	}
+
 	p {
 		margin-top: -1px;
-		font-family: "Anton";
+		/*font-family: "Anton";*/
 	}
 
 	#profiles {
@@ -43,7 +70,7 @@
 				/*margin-left: 45px;*/	
 			}
 
-    	#mark {
+    		#mark {
 				background-image: url("/assets/Mark_Abel.jpg");
 
 			}
@@ -57,4 +84,44 @@
 				background-image: url("/assets/Alexa_Heitzenrader.jpg");
 			}
 		}
+}
+
+
+.main{
+	margin-top: -86px;
+}
+
+.logo{
+	font-weight: bold;
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.chart{
+	width: 400px;
+	height: 400px;
+}
+
+@media(max-width:800px) {
+  .chart{
+  	width: 300px;
+  	height: 300px;
+	}
 }

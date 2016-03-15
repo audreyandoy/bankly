@@ -1,25 +1,26 @@
-
-
-<!-- <button class='btn-xlarge btn-primary', data-toggle="modal" href='#modal-id1'>Add item</button> -->
-<!-- <a href="/logout"><button method="destroy" class='btn-xlarge btn-primary'>Logout</button></a> -->
-
 <div class = 'row'>
-	<div class = 'col-sm-8 col-sm-offset-2 text-center'
-<%= form_tag('', method: "get") do %>
-  <%= label_tag(:q, "Search by Month & Year") %>
-  <%= month_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-
-<!--ALEXA - please review below -->
-
-<!-- <div class="modal fade" id="modal-id1">
+	<div class = 'col-sm-8 col-sm-offset-2 text-center'>
+		<%= form_tag('', method: "get") do %>
+		  <%= label_tag(:q, "Search by Month & Year") %>
+		  <%= month_field_tag(:q) %>
+		  <%= submit_tag("Search") %>
+		<% end %>
+		<h2>Today's date: <%= Time.now.strftime("%b %d, %Y") %></h2>
+		<div class='chart responsive center-block'>
+			<canvas id="myChart" class="chart responsive text-center" width="400" height="400"></canvas>
+		</div>
+		<br>
+		<button class = 'btn btn-primary' href='#modal-id3' data-toggle="modal">Add Item</button>
+		<button class="btn btn-primary" data-toggle="modal" href='#modal-id'>View all</button>
+	</div>
+	<div class="modal fade" id="modal-id">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Login</h4>
+					<h4 class="modal-title">Spending Total</h4>
 				</div>
+
 				
 				<div class="modal-body"> -->
 						<!-- <h1>Log in</h1> -->
@@ -48,6 +49,10 @@
 						<% end %>
 		
 
+				<div class="modal-body">
+					<%= javascript_tag do %>
+						counter = 0;
+					<% end %>
 					<div id="dashboardData">
 						<% @categories.each do |c| %>
 						  <% total = 0 %>
@@ -71,4 +76,22 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div class="modal fade" id="modal-item">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Category List</h4>
+				</div>
+				<div class="modal-body-item">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
