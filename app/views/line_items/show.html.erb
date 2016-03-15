@@ -27,6 +27,7 @@
         </td>
         <td> <button class = 'btn btn-primary editbutton' href='#modal-id<%= item.id %>' data-toggle="modal" id="<%= item.id %>">Edit Item</button>
         <td> <%= link_to 'Delete', line_items_delete_path(item), method: :delete, :class => 'delete' %></td>
+  
       </tr>
 <div class="modal fade" id="modal-id<%= item.id %>">
     <div class="modal-dialog">

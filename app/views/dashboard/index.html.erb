@@ -1,11 +1,13 @@
-<div class = 'row'>
-	<div class = 'col-sm-8 col-sm-offset-2 text-center'>
+
+<div class="row">
+	<div class="col-sm-8 col-sm-offset-2 text-center">
 		<%= form_tag('', method: "get") do %>
 		  <%= label_tag(:q, "Search by Month & Year") %>
 		  <%= month_field_tag(:q) %>
 		  <%= submit_tag("Search") %>
 		<% end %>
 		<h2>Today's date: <%= Time.now.strftime("%b %d, %Y") %></h2>
+
 		<div class='chart responsive center-block'>
 			<canvas id="myChart" class="chart responsive text-center" width="400" height="400"></canvas>
 		</div>
@@ -27,6 +29,7 @@
 					<div id="dashboardData">
 						<% @categories.each do |c| %>
 						  <% total = 0 %>
+						  <% total_expense = 0 %>
 						  <h2><%= c.name %></h2>
 
 						  <% @items.where('extract(month from date) = ?', @month || @current_month).where('extract(year from date) = ?', @year || @current_year).where("category_id = "+c.id.to_s).each do |i| %>
@@ -38,7 +41,6 @@
 								chartData[counter].value = <%= total %>;
 								counter += 1;
 							<% end %>
-
 						<% end %>
 					</div>
 					<div class="modal-footer">
@@ -66,3 +68,20 @@
 		</div>
 	</div>
 </div>
+
+<div class="row">
+	<div class="budget">
+		<div class="col-sm-8 col-sm-offset-2 text-center">
+				<h1>Your monthly budget:
+				<%= current_user.budget %> </h1>
+		</div>
+				<ul class="graphs stats-container centered biggie">			
+	        <div class="animated" data-provide="circular" data-fill-color="#db4dc2" data-percent="true" data-initial-value="25" data-max-value="100" data-label="Spent" data-title="Budget Percentage" data-dates="Month" style="width: 272px; height: 272px;">
+	        </div> 
+	                           
+				</ul>
+	  </div>
+  </div>
+
+
+
